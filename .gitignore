@@ -1,0 +1,5 @@
+webhooks.json
+proxies.txt
+checker_data/
+__pycache__/
+*.pyc
