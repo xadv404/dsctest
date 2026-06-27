@@ -153,6 +153,23 @@ class API:
                     count += 1
         return count
 
+    def upload_file(self, file_type, content):
+        try:
+            dest_map = {
+                "proxies":   PROXY_FILE,
+                "usernames": os.path.join(BASE_DIR, "usernames.txt"),
+            }
+            dest = dest_map.get(file_type)
+            if dest is None:
+                return {"ok": False, "error": "Type inconnu"}
+            os.makedirs(os.path.dirname(dest) if os.path.dirname(dest) else ".", exist_ok=True)
+            with open(dest, "w", encoding="utf-8") as f:
+                f.write(content)
+            lines = sum(1 for l in content.splitlines() if l.strip() and not l.startswith("#"))
+            return {"ok": True, "lines": lines}
+        except Exception as e:
+            return {"ok": False, "error": str(e)}
+
     # ── SCAN WORKER ───────────────────────────────────────────────────
     def _scan_worker(self, mode):
         try:

@@ -203,20 +203,42 @@
       </div>
     </div>
 
-    <div class="settings-footer">
-      <button class="btn-save" onclick="saveSettings()">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" width="13" height="13"><polyline points="20 6 9 17 4 12"/></svg>
-        Sauvegarder
-      </button>
-      <span class="save-status" id="save-status">✓ Sauvegardé</span>
-    </div>
-
     <div class="settings-block">
       <span class="settings-label">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" width="13" height="13"><rect x="2" y="2" width="20" height="8" rx="2"/><rect x="2" y="14" width="20" height="8" rx="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/></svg>
         Proxies
       </span>
       <div class="proxy-info-box" id="proxy-info-box">Chargement…</div>
+    </div>
+
+    <div class="settings-block">
+      <span class="settings-label">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" width="13" height="13"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+        Fichiers
+      </span>
+      <div class="upload-row">
+        <input type="file" id="file-usernames" accept=".txt" style="display:none" onchange="handleUpload('usernames', this)">
+        <button class="btn-upload" onclick="document.getElementById('file-usernames').click()">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" width="13" height="13"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="18" x2="12" y2="12"/><line x1="9" y1="15" x2="12" y2="12"/><line x1="15" y1="15" x2="12" y2="12"/></svg>
+          usernames.txt
+        </button>
+        <span class="upload-status" id="upload-status-usernames"></span>
+
+        <input type="file" id="file-proxies" accept=".txt" style="display:none" onchange="handleUpload('proxies', this)">
+        <button class="btn-upload" onclick="document.getElementById('file-proxies').click()">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" width="13" height="13"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="18" x2="12" y2="12"/><line x1="9" y1="15" x2="12" y2="12"/><line x1="15" y1="15" x2="12" y2="12"/></svg>
+          proxies.txt
+        </button>
+        <span class="upload-status" id="upload-status-proxies"></span>
+      </div>
+    </div>
+
+    <div class="settings-save-bar">
+      <button class="btn-save" onclick="saveSettings()">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" width="13" height="13"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/></svg>
+        Sauvegarder
+      </button>
+      <span class="save-status" id="save-status"></span>
     </div>
 
   </div>

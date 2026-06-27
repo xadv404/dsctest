@@ -210,6 +210,31 @@ async function saveSettings() {
   }
 }
 
+// ── FILE UPLOAD ───────────────────────────────────────────────────
+function handleUpload(type, input) {
+  var file = input.files[0];
+  if (!file) return;
+  var statusEl = document.getElementById('upload-status-' + type);
+  statusEl.textContent = 'Envoi…';
+  statusEl.className = 'upload-status';
+
+  var reader = new FileReader();
+  reader.onload = async function(e) {
+    var result = await window.pywebview.api.upload_file(type, e.target.result);
+    if (result.ok) {
+      statusEl.textContent = '✓ ' + result.lines + ' lignes';
+      statusEl.className = 'upload-status ok';
+      if (type === 'proxies') loadSettings();
+    } else {
+      statusEl.textContent = '✗ Erreur';
+      statusEl.className = 'upload-status err';
+    }
+    input.value = '';
+    setTimeout(function() { statusEl.textContent = ''; statusEl.className = 'upload-status'; }, 3000);
+  };
+  reader.readAsText(file);
+}
+
 // ── UTILS ─────────────────────────────────────────────────────────
 function escHtml(str) {
   return String(str)
