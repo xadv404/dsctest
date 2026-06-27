@@ -78,56 +78,60 @@
       </span>
     </div>
 
-    <div class="stats-bar">
-      <div class="stat">
-        <span class="stat-label">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" width="11" height="11"><polyline points="20 6 9 17 4 12"/></svg>
-          Vérifiés
-        </span>
-        <span class="stat-value" id="s-checked">0</span>
-      </div>
-      <div class="stat">
-        <span class="stat-label">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" width="11" height="11"><line x1="4" y1="9" x2="20" y2="9"/><line x1="4" y1="15" x2="20" y2="15"/><line x1="10" y1="3" x2="8" y2="21"/><line x1="16" y1="3" x2="14" y2="21"/></svg>
-          Total
-        </span>
-        <span class="stat-value" id="s-total">—</span>
-      </div>
-      <div class="stat">
-        <span class="stat-label">
-          <svg viewBox="0 0 24 24" fill="#1a7f3c" width="11" height="11"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-          Trouvés
-        </span>
-        <span class="stat-value green" id="s-found">0</span>
-      </div>
-      <div class="stat">
-        <span class="stat-label">
-          <svg viewBox="0 0 24 24" fill="#9a6700" width="11" height="11"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
-          Vitesse
-        </span>
-        <span class="stat-value" id="s-speed">—</span>
-      </div>
-      <div class="stat">
-        <span class="stat-label">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" width="11" height="11"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-          ETA
-        </span>
-        <span class="stat-value" id="s-eta">—</span>
-      </div>
-      <div class="stat">
-        <span class="stat-label">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" width="11" height="11"><line x1="19" y1="5" x2="5" y2="19"/><circle cx="6.5" cy="6.5" r="2.5"/><circle cx="17.5" cy="17.5" r="2.5"/></svg>
-          Progression
-        </span>
-        <span class="stat-value" id="s-pct">0%</span>
-      </div>
-    </div>
+    <div class="scan-body">
 
-    <div class="progress-track">
-      <div class="progress-fill" id="progress-fill"></div>
-    </div>
+      <div class="console" id="console"></div>
 
-    <div class="console" id="console"></div>
+      <aside class="stats-side">
+        <div class="stat">
+          <span class="stat-label">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" width="11" height="11"><polyline points="20 6 9 17 4 12"/></svg>
+            Vérifiés
+          </span>
+          <span class="stat-value" id="s-checked">0</span>
+        </div>
+        <div class="stat">
+          <span class="stat-label">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" width="11" height="11"><line x1="4" y1="9" x2="20" y2="9"/><line x1="4" y1="15" x2="20" y2="15"/><line x1="10" y1="3" x2="8" y2="21"/><line x1="16" y1="3" x2="14" y2="21"/></svg>
+            Total
+          </span>
+          <span class="stat-value" id="s-total">—</span>
+        </div>
+        <div class="stat stat-found">
+          <span class="stat-label">
+            <svg viewBox="0 0 24 24" fill="var(--green)" width="11" height="11"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            Trouvés
+          </span>
+          <span class="stat-value green" id="s-found">0</span>
+        </div>
+        <div class="stat">
+          <span class="stat-label">
+            <svg viewBox="0 0 24 24" fill="var(--amber)" width="11" height="11"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+            Vitesse
+          </span>
+          <span class="stat-value" id="s-speed">—</span>
+        </div>
+        <div class="stat">
+          <span class="stat-label">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" width="11" height="11"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            ETA
+          </span>
+          <span class="stat-value" id="s-eta">—</span>
+        </div>
+        <div class="stat">
+          <span class="stat-label">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" width="11" height="11"><line x1="19" y1="5" x2="5" y2="19"/><circle cx="6.5" cy="6.5" r="2.5"/><circle cx="17.5" cy="17.5" r="2.5"/></svg>
+            Progression
+          </span>
+          <span class="stat-value" id="s-pct">0%</span>
+        </div>
+
+        <div class="progress-track">
+          <div class="progress-fill" id="progress-fill"></div>
+        </div>
+      </aside>
+
+    </div>
 
   </div>
 
