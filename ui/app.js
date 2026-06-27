@@ -227,8 +227,8 @@ function escAttr(str) {
 document.addEventListener('DOMContentLoaded', function() {
   var splash = document.getElementById('splash');
   setTimeout(function() {
-    splash.classList.add('fade-out');
-    setTimeout(function() { splash.remove(); }, 500);
+    splash.classList.add('slide-out');
+    setTimeout(function() { splash.remove(); }, 550);
   }, 2000);
 });
 
