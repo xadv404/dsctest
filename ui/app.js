@@ -1,11 +1,32 @@
 // ── TAB NAVIGATION ───────────────────────────────────────────────
+var TAB_ORDER     = ['scan', 'history', 'settings'];
+var _currentTab   = 'scan';
+var _tabSwitching = false;
+
 function showTab(name, btn) {
-  document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
-  document.querySelectorAll('nav button').forEach(b => b.classList.remove('active'));
-  document.getElementById('tab-' + name).classList.add('active');
+  if (name === _currentTab || _tabSwitching) return;
+  _tabSwitching = true;
+
+  var oldIdx     = TAB_ORDER.indexOf(_currentTab);
+  var newIdx     = TAB_ORDER.indexOf(name);
+  var goRight    = newIdx > oldIdx;
+  var oldPanel   = document.getElementById('tab-' + _currentTab);
+  var newPanel   = document.getElementById('tab-' + name);
+
+  document.querySelectorAll('nav button').forEach(function(b) { b.classList.remove('active'); });
   btn.classList.add('active');
-  if (name === 'history')  loadHistory();
-  if (name === 'settings') loadSettings();
+
+  oldPanel.classList.add('panel-exiting', goRight ? 'slide-out-left' : 'slide-out-right');
+  newPanel.classList.add('active', goRight ? 'slide-in-right' : 'slide-in-left');
+
+  setTimeout(function() {
+    oldPanel.classList.remove('active', 'panel-exiting', 'slide-out-left', 'slide-out-right');
+    newPanel.classList.remove('slide-in-right', 'slide-in-left');
+    _currentTab   = name;
+    _tabSwitching = false;
+    if (name === 'history')  loadHistory();
+    if (name === 'settings') loadSettings();
+  }, 220);
 }
 
 // ── EVENT BUS FROM PYTHON ─────────────────────────────────────────
