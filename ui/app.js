@@ -56,7 +56,7 @@ function updateProgress(d) {
 }
 
 function updateProxyBadge(count) {
-  document.getElementById('proxy-badge').textContent = count + ' proxies';
+  document.getElementById('proxy-count').textContent = count;
 }
 
 // ── SCAN CONTROLS ─────────────────────────────────────────────────
@@ -224,6 +224,14 @@ function escAttr(str) {
 }
 
 // ── INIT ──────────────────────────────────────────────────────────
+document.addEventListener('DOMContentLoaded', function() {
+  var splash = document.getElementById('splash');
+  setTimeout(function() {
+    splash.classList.add('fade-out');
+    setTimeout(function() { splash.remove(); }, 500);
+  }, 2000);
+});
+
 window.addEventListener('pywebviewready', async function() {
   const count = await window.pywebview.api.get_proxy_count();
   updateProxyBadge(count);
