@@ -1,16 +1,16 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
-  --bg:         #ffffff;
-  --surface:    #f6f6f6;
-  --border:     #e0e0e0;
-  --text:       #111111;
-  --muted:      #777777;
-  --accent:     #111111;
-  --green:      #1a7f3c;
-  --red:        #c0392b;
-  --amber:      #9a6700;
-  --console-bg: #111111;
+  --bg:         #0d0d0d;
+  --surface:    #1a1a1a;
+  --border:     #2a2a2a;
+  --text:       #f0f0f0;
+  --muted:      #666666;
+  --accent:     #f0f0f0;
+  --green:      #3fb950;
+  --red:        #f85149;
+  --amber:      #d29922;
+  --console-bg: #000000;
 }
 
 body {
@@ -93,7 +93,7 @@ main { flex: 1; overflow: hidden; }
 select {
   padding: 7px 10px;
   border: 1px solid var(--border);
-  border-radius: 4px;
+  border-radius: 999px;
   font-size: 13px;
   background: var(--bg);
   color: var(--text);
@@ -108,7 +108,7 @@ select:focus { outline: none; border-color: #999; }
 
 .btn {
   padding: 7px 16px;
-  border-radius: 4px;
+  border-radius: 999px;
   font-size: 13px;
   font-weight: 500;
   cursor: pointer;
@@ -120,13 +120,13 @@ select:focus { outline: none; border-color: #999; }
 }
 .btn:disabled { opacity: 0.4; cursor: not-allowed; }
 
-.btn-start { background: var(--text); color: #fff; }
-.btn-start:hover:not(:disabled) { background: #333; }
+.btn-start { background: var(--text); color: #0d0d0d; }
+.btn-start:hover:not(:disabled) { background: #cfcfcf; }
 
-.btn-stop { background: var(--bg); color: var(--red); border-color: var(--red); }
-.btn-stop:hover:not(:disabled) { background: #fff5f5; }
+.btn-stop { background: transparent; color: var(--red); border-color: var(--red); }
+.btn-stop:hover:not(:disabled) { background: rgba(248,81,73,0.08); }
 
-.btn-reset { background: var(--bg); color: var(--muted); border-color: var(--border); font-size: 12px; }
+.btn-reset { background: transparent; color: var(--muted); border-color: var(--border); font-size: 12px; }
 .btn-reset:hover:not(:disabled) { background: var(--surface); }
 
 .proxy-badge {
@@ -304,7 +304,7 @@ tbody tr:hover td { background: var(--surface); }
 .copy-btn {
   padding: 3px 10px;
   border: 1px solid var(--border);
-  border-radius: 3px;
+  border-radius: 999px;
   font-size: 11px;
   cursor: pointer;
   background: var(--bg);
@@ -365,9 +365,9 @@ tbody tr:hover td { background: var(--surface); }
 .btn-save {
   padding: 8px 20px;
   background: var(--text);
-  color: #fff;
+  color: #0d0d0d;
   border: none;
-  border-radius: 4px;
+  border-radius: 999px;
   font-size: 13px;
   font-weight: 500;
   cursor: pointer;
@@ -375,7 +375,7 @@ tbody tr:hover td { background: var(--surface); }
   align-items: center;
   gap: 6px;
 }
-.btn-save:hover { background: #333; }
+.btn-save:hover { background: #cfcfcf; }
 
 .save-status {
   font-size: 12px;
@@ -404,4 +404,4 @@ tbody tr:hover td { background: var(--surface); }
 /* ── SCROLLBAR GLOBAL ─────────────────────── */
 ::-webkit-scrollbar       { width: 6px; height: 6px; }
 ::-webkit-scrollbar-track { background: transparent; }
-::-webkit-scrollbar-thumb { background: #ccc; border-radius: 3px; }
+::-webkit-scrollbar-thumb { background: #333; border-radius: 3px; }
